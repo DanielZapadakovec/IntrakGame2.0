@@ -58,10 +58,21 @@ public class DragDrop : MonoBehaviour
         isDragging = false;
         if (isOverDropZone == true) 
         {
-            TestingCard();
+
             dropZone.GetComponent<DropZone>().AddToDiscardPile(gameObject);
+
+            if (DrawCards.drawablecardforPlayer)
+            {
+                DrawCards.cardsPlayerDeck.Remove(gameObject);
+            }
+            else if (DrawCards.drawablecardforEnemy)
+            {
+                DrawCards.cardsEnemyDeck.Remove(gameObject);
+            }
+
             transform.SetParent(dropZone.transform, true);
             isDraggable = false;
+            TestingCard();
         }
         else
         {
