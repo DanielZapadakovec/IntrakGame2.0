@@ -1137,6 +1137,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1953489277570512776, guid: 8e4a0119849a83d4abf5f2f7272c02d6, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953489277570512776, guid: 8e4a0119849a83d4abf5f2f7272c02d6, type: 3}
       propertyPath: m_Color.b
       value: 0.09433961
       objectReference: {fileID: 0}
@@ -1151,6 +1155,10 @@ PrefabInstance:
     - target: {fileID: 8651545534922729358, guid: 8e4a0119849a83d4abf5f2f7272c02d6, type: 3}
       propertyPath: m_Name
       value: EnemySite
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651545534922729358, guid: 8e4a0119849a83d4abf5f2f7272c02d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
