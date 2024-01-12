@@ -6,12 +6,14 @@ public class DrawCards : MonoBehaviour
 {
     public List<GameObject> cardsInDeck = new List<GameObject>();
     public GameObject PlayerArea;
+    public GameObject ViewPlayerArea; 
     public static List<GameObject> cardsPlayerDeck = new List<GameObject>();
     public static List<GameObject> cardsEnemyDeck = new List<GameObject>();
     public bool StartGameWasExecuted;
     public static bool drawablecardforPlayer = true;
     public static bool drawablecardforEnemy;
     public GameObject EnemyArea;
+    public GameObject ViewEnemydArea;
     public GameObject vychovavatelprefab;
     public GameObject BackOfCardPrefab;
     public GameManager gameManager;
@@ -93,6 +95,8 @@ public class DrawCards : MonoBehaviour
 
     IEnumerator StartGame()
     {
+        drawablecardforEnemy = false;
+        drawablecardforPlayer = false;
         ShuffleCardsInDeck();
         for (int i = 0; i < 5; i++)
         {
@@ -121,6 +125,8 @@ public class DrawCards : MonoBehaviour
             cardsInDeck.Add(vychovavatelprefab);
         }
         ShuffleCardsInDeck();
+        drawablecardforEnemy = false;
+        drawablecardforPlayer = true;
         StartGameWasExecuted = true;
 
     }
