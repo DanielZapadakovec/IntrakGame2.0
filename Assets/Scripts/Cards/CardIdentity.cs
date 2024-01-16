@@ -9,6 +9,7 @@ public class CardIdentity : MonoBehaviour
     public string Description;
 
 
+
     public CardIdentity()
     {
 

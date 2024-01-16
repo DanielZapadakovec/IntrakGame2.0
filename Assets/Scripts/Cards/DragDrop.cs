@@ -14,12 +14,14 @@ public class DragDrop : MonoBehaviour
     private GameObject startParent;
     public Vector2 deckposition;
     public DrawCards drawCards;
-    public List<GameObject> topThree = new List<GameObject>();
+    public GameManager gameManager;
+    public bool areinViewArea;
 
     void Start()
     {
         Canvas = GameObject.Find("MainCanvas");
         drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
 
     }
@@ -48,10 +50,15 @@ public class DragDrop : MonoBehaviour
 
     public void StartDrag()
     {
-        if (!isDraggable) return;
-        startParent = transform.parent.gameObject;
-        startPosition = transform.position;
-        isDragging = true;
+        if (areinViewArea == false)
+        {
+
+
+            if (!isDraggable) return;
+            startParent = transform.parent.gameObject;
+            startPosition = transform.position;
+            isDragging = true;
+        }
 
     }
     public void EndDrag()
@@ -97,28 +104,17 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 2 && DrawCards.drawablecardforPlayer)
         {
+            areinViewArea = true;
             drawCards.CanBeDrawed = false;
             Debug.Log("Hráè si pozrie prvé tri karty z balíèka.");
             for (int i = 0; i < 3 && i < drawCards.cardsInDeck.Count; i++)
             {
-                topThree.Add(drawCards.cardsInDeck[i]);
+                gameManager.topThree.Add(drawCards.cardsInDeck[i]);
                 GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
                 card.transform.SetParent(drawCards.ViewPlayerArea.transform, false);
                 drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count-1);
             }
             Debug.Log("boli vzate");
-            WaitForBackCards();
-            foreach (Transform child in drawCards.ViewPlayerArea.transform)
-            {
-                Destroy(child.gameObject);
-            }
-            for (int i = topThree.Count - 1; i >= 0; i--)
-            {
-                drawCards.cardsInDeck.Insert(0, topThree[i]);
-
-            }
-            Debug.Log("boli vratene");
-            drawCards.CanBeDrawed = true;
 
         }
         else if (cardId == 2 && DrawCards.drawablecardforEnemy)
@@ -171,10 +167,6 @@ public class DragDrop : MonoBehaviour
     }
 
 
-    IEnumerator WaitForBackCards()
-    {
-        yield return new WaitForSeconds(5f);
-    }
 
 }
 

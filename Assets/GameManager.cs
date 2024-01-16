@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public GameObject endGamePanel;
     public DrawCards drawCards;
     public DropZone dropZone;
+    public DragDrop dragDrop;
+    public List<GameObject> topThree = new List<GameObject>();
+
+    public GameObject buttonToGetBackCards;
     private void Start()
     {
       drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
@@ -17,6 +21,11 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         CheckGameOver();
+
+        if (topThree.Count > 0 )
+        {
+            buttonToGetBackCards.SetActive(true);
+        }
     }
 
     public void CheckGameOver()
@@ -69,6 +78,24 @@ public class GameManager : MonoBehaviour
             drawCards.CanBeDrawed = true;
         }
     }
+    public void GetBackCardsFromCamerasCard()
+    {
+        for (int i = topThree.Count - 1; i >= 0; i--)
+        {
+            drawCards.cardsInDeck.Insert(0, topThree[i]);
 
+        }
+        foreach (Transform child in drawCards.ViewPlayerArea.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        Debug.Log("boli vratene");
+        drawCards.CanBeDrawed = true;
+        dragDrop.areinViewArea = false;
+        buttonToGetBackCards.SetActive(false);
+        dragDrop.areinViewArea = false;
+
+    }
 
 }

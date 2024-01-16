@@ -189,6 +189,8 @@ MonoBehaviour:
   Canvas: {fileID: 0}
   deckposition: {x: 0, y: 0}
   drawCards: {fileID: 0}
+  gameManager: {fileID: 0}
+  areinViewArea: 0
 --- !u!61 &-4670266339259411356
 BoxCollider2D:
   m_ObjectHideFlags: 0

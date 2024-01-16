@@ -11,6 +11,8 @@ public class DrawCards : MonoBehaviour
     public static List<GameObject> cardsEnemyDeck = new List<GameObject>();
     public bool StartGameWasExecuted;
     public static bool drawablecardforPlayer = true;
+    public bool switchtoenemyside;
+    public bool switchtoeplayerside;
     public static bool drawablecardforEnemy;
     public GameObject EnemyArea;
     public GameObject ViewEnemydArea;
@@ -60,6 +62,8 @@ public class DrawCards : MonoBehaviour
                 }
                 drawablecardforPlayer = false;
                 drawablecardforEnemy = true;
+                switchtoenemyside = true;
+                switchtoeplayerside = false;
             }
             else if (cardsInDeck.Count > 0 && drawablecardforEnemy == true)
             {
@@ -70,7 +74,9 @@ public class DrawCards : MonoBehaviour
 
                 cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
 
+                switchtoenemyside = false;
                 drawablecardforPlayer = true;
+                switchtoeplayerside = true;
                 drawablecardforEnemy = false;
             }
             else if (cardsPlayerDeck.Count < 1)
@@ -96,7 +102,9 @@ public class DrawCards : MonoBehaviour
     IEnumerator StartGame()
     {
         drawablecardforEnemy = false;
-        drawablecardforPlayer = false;
+        switchtoenemyside = false;
+        drawablecardforPlayer = true;
+        switchtoeplayerside = true;
         ShuffleCardsInDeck();
         for (int i = 0; i < 5; i++)
         {
@@ -126,7 +134,9 @@ public class DrawCards : MonoBehaviour
         }
         ShuffleCardsInDeck();
         drawablecardforEnemy = false;
+        switchtoenemyside = false;
         drawablecardforPlayer = true;
+        switchtoeplayerside = true;
         StartGameWasExecuted = true;
 
     }
