@@ -24,7 +24,6 @@ public class EnemySiteScript : MonoBehaviour
         {
             transform.position = startPosition;
         }
-        // Nastavenie nových pozícií objektu
-        transform.position = targetPosition;
+
     }
 }
