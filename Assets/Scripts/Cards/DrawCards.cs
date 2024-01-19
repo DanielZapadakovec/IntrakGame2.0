@@ -56,14 +56,10 @@ public class DrawCards : MonoBehaviour
                 cardsPlayerDeck.Add(card);
 
                 cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
-                if (gameManager.hasCardWithID0 == false)
-                {
-
-                }
-                drawablecardforPlayer = false;
-                drawablecardforEnemy = true;
                 switchtoenemyside = true;
                 switchtoeplayerside = false;
+                drawablecardforPlayer = false;
+                drawablecardforEnemy = true;
             }
             else if (cardsInDeck.Count > 0 && drawablecardforEnemy == true)
             {
