@@ -119,7 +119,7 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 2 && DrawCards.drawablecardforEnemy)
         {
-            Debug.Log("Enemy si pozrie prvé tri karty z balíèka.");
+            Debug.Log("Hráè si pozrie prvé tri karty z balíèka.");
         }
         else if (cardId == 3 && DrawCards.drawablecardforPlayer)
         {
