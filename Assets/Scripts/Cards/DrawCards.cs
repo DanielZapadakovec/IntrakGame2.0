@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Apple;
 
 public class DrawCards : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class DrawCards : MonoBehaviour
     public GameObject BackOfCardPrefab;
     public GameManager gameManager;
     public bool CanBeDrawed = true;
+    public GameObject MyTurn;
+    public GameObject EnemyTurn;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,8 @@ public class DrawCards : MonoBehaviour
         StartCoroutine(StartGame());
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         CanBeDrawed = true;
-}
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -98,9 +102,13 @@ public class DrawCards : MonoBehaviour
     IEnumerator StartGame()
     {
         drawablecardforEnemy = false;
+<<<<<<< Updated upstream
         switchtoenemyside = false;
         drawablecardforPlayer = true;
         switchtoeplayerside = true;
+=======
+        drawablecardforPlayer = true;
+>>>>>>> Stashed changes
         ShuffleCardsInDeck();
         for (int i = 0; i < 5; i++)
         {
@@ -158,7 +166,23 @@ public class DrawCards : MonoBehaviour
             }
         }
     }
+    void UpdateCardPositions()
+    {
+        // Assuming a horizontal layout for simplicity
+        float xOffset = 2.0f; // Adjust this value based on your desired spacing
 
+        // Update positions for cards in the player area
+        for (int i = 0; i < cardsPlayerDeck.Count; i++)
+        {
+            cardsPlayerDeck[i].transform.position = new Vector2(i * xOffset, 0f);
+        }
+
+        // Update positions for cards in the enemy area
+        for (int i = 0; i < cardsEnemyDeck.Count; i++)
+        {
+            cardsEnemyDeck[i].transform.position = new Vector2(i * xOffset, 0f);
+        }
+    }
 
 
 }
