@@ -1554,7 +1554,7 @@ PrefabInstance:
     - target: {fileID: 3860576372699871823, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a5ba5df5423a1884e82f4642ef19743e, type: 3}
+      objectReference: {fileID: 21300000, guid: 2314efb4cc9a2fe44bf8ea4b06b34578, type: 3}
     - target: {fileID: 4640029383090388588, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_Name
       value: DrawCardButton
@@ -1641,11 +1641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7372493533345201682, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 131.25
+      value: 173.5141
       objectReference: {fileID: 0}
     - target: {fileID: 7372493533345201682, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 173.35
+      value: 181.3813
       objectReference: {fileID: 0}
     - target: {fileID: 7372493533345201682, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1677,11 +1677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7372493533345201682, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -252.46
+      value: -246.431
       objectReference: {fileID: 0}
     - target: {fileID: 7372493533345201682, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.3258
+      value: -8.9335
       objectReference: {fileID: 0}
     - target: {fileID: 7372493533345201682, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2114,11 +2114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5236317903006049331, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 159.6716
+      value: 195.5496
       objectReference: {fileID: 0}
     - target: {fileID: 5236317903006049331, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 193.6839
+      value: 187.7042
       objectReference: {fileID: 0}
     - target: {fileID: 5236317903006049331, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2150,11 +2150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5236317903006049331, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -8.6843
+      value: -0.5687
       objectReference: {fileID: 0}
     - target: {fileID: 5236317903006049331, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.4368
+      value: -12.0243
       objectReference: {fileID: 0}
     - target: {fileID: 5236317903006049331, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2169,16 +2169,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7661491869665572614, guid: 837d22c50c45677488caa34c801bd171, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e09b6dab2695614a801612eb33b1931, type: 3}
+    - target: {fileID: 7661491869665572614, guid: 837d22c50c45677488caa34c801bd171, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7661491869665572614, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_Color.b
-      value: 0.8113208
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7661491869665572614, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_Color.g
-      value: 0.8113208
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7661491869665572614, guid: 837d22c50c45677488caa34c801bd171, type: 3}
       propertyPath: m_Color.r
-      value: 0.8113208
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
