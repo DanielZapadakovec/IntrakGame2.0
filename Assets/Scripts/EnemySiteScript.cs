@@ -13,14 +13,14 @@ public class EnemySiteScript : MonoBehaviour
         drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
     }
 
-    // Metóda, ktorá sa volá po kliknutí na tlaèidlo
-    public void MoveObject()
+
+    public void MoveObjectForEnemy()
     {
         if (drawCards.switchtoenemyside == true)
         {
             transform.position = targetPosition;
         }
-        if (drawCards.switchtoeplayerside == true)
+        else
         {
             transform.position = startPosition;
         }
