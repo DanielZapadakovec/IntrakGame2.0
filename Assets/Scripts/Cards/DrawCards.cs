@@ -102,13 +102,12 @@ public class DrawCards : MonoBehaviour
     IEnumerator StartGame()
     {
         drawablecardforEnemy = false;
-<<<<<<< Updated upstream
+
         switchtoenemyside = false;
         drawablecardforPlayer = true;
         switchtoeplayerside = true;
-=======
+
         drawablecardforPlayer = true;
->>>>>>> Stashed changes
         ShuffleCardsInDeck();
         for (int i = 0; i < 5; i++)
         {
