@@ -38,6 +38,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void Lore_Button()
+    {
+        SceneManager.LoadScene(2);
+    }
 
     public void Setting_Button()
     {
