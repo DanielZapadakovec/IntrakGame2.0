@@ -104,6 +104,7 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 2 && DrawCards.drawablecardforPlayer)
         {
+            gameManager.buttonToGetBackCards.SetActive(true);
             areinViewArea = true;
             drawCards.CanBeDrawed = false;
             Debug.Log("Hráè si pozrie prvé tri karty z balíèka.");

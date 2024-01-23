@@ -22,10 +22,6 @@ public class GameManager : MonoBehaviour
     {
         CheckGameOver();
 
-        if (topThree.Count > 0 )
-        {
-            buttonToGetBackCards.SetActive(true);
-        }
     }
 
     public void CheckGameOver()
@@ -80,10 +76,11 @@ public class GameManager : MonoBehaviour
     }
     public void GetBackCardsFromCamerasCard()
     {
+        buttonToGetBackCards.SetActive(false);
         for (int i = topThree.Count - 1; i >= 0; i--)
         {
-            drawCards.cardsInDeck.Insert(0, topThree[i]);
-
+            drawCards.cardsInDeck.Insert(drawCards.cardsInDeck.Count, topThree[i]);
+            topThree.Remove(topThree[i]);
         }
         foreach (Transform child in drawCards.ViewPlayerArea.transform)
         {
@@ -93,8 +90,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("boli vratene");
         drawCards.CanBeDrawed = true;
         dragDrop.areinViewArea = false;
-        buttonToGetBackCards.SetActive(false);
-        dragDrop.areinViewArea = false;
+        topThree.Clear();
 
     }
 
