@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainHra.unity
     guid: 6b6b6c40b54e7094bba36f960da84da1
+  - enabled: 1
+    path: Assets/Scenes/Lore-Scena.unity
+    guid: dee8014f5ec95784a90aaa611ca25184
   m_configObjects: {}
