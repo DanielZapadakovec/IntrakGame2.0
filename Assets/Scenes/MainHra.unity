@@ -418,6 +418,7 @@ MonoBehaviour:
   dropZone: {fileID: 1915588105}
   dragDrop: {fileID: 0}
   topThree: []
+  DropZone: {fileID: 1946400209}
   buttonToGetBackCards: {fileID: 2127694921}
 --- !u!4 &384476713
 Transform:
@@ -1335,7 +1336,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3349742293767696930, guid: 837d22c50c45677488caa34c801bd171, type: 3}
   m_PrefabInstance: {fileID: 8167787597004830498}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1946400209}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef073afe8ef933c4d93ed274fd102d4f, type: 3}
@@ -1345,6 +1346,11 @@ MonoBehaviour:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7995106842967383693, guid: 53d77b06117dd3343be60aba91a5c72b, type: 3}
   m_PrefabInstance: {fileID: 8224631364675818320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1946400209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 875665437624475529, guid: 837d22c50c45677488caa34c801bd171, type: 3}
+  m_PrefabInstance: {fileID: 8167787597004830498}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2050513404 stripped
 GameObject:

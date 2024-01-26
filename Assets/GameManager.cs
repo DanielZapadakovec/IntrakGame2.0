@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     public DropZone dropZone;
     public DragDrop dragDrop;
     public List<GameObject> topThree = new List<GameObject>();
+    public GameObject DropZone;
 
     public GameObject buttonToGetBackCards;
     private void Start()
     {
       drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
       dropZone = GameObject.Find("DropZone").GetComponent<DropZone>();
+        DropZone = GameObject.Find("DropZone");
     }
     public void Update()
     {
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
         drawCards.CanBeDrawed = true;
         dragDrop.areinViewArea = false;
         topThree.Clear();
+        DropZone.SetActive(true);
 
     }
 

@@ -16,13 +16,14 @@ public class DragDrop : MonoBehaviour
     public DrawCards drawCards;
     public GameManager gameManager;
     public bool areinViewArea;
+    public GameObject DropZone;
 
     void Start()
     {
         Canvas = GameObject.Find("MainCanvas");
         drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        DropZone = GameObject.Find("DropZone");
 
     }
     void Update()
@@ -104,18 +105,22 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 2 && DrawCards.drawablecardforPlayer)
         {
+            DropZone.SetActive(false);
             gameManager.buttonToGetBackCards.SetActive(true);
             areinViewArea = true;
             drawCards.CanBeDrawed = false;
             Debug.Log("Hráè si pozrie prvé tri karty z balíèka.");
             for (int i = 0; i < 3 && i < drawCards.cardsInDeck.Count; i++)
             {
-                gameManager.topThree.Add(drawCards.cardsInDeck[i]);
+                gameManager.topThree.Add(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1 - i]);
+            }
+            for (int i = 0; i < 3 && i < drawCards.cardsInDeck.Count; i++)
+            {
                 GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
                 card.transform.SetParent(drawCards.ViewPlayerArea.transform, false);
-                drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count-1);
+                drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
             }
-            Debug.Log("boli vzate");
+        Debug.Log("boli vzate");
 
         }
         else if (cardId == 2 && DrawCards.drawablecardforEnemy)
