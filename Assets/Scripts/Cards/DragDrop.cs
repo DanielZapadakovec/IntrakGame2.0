@@ -126,6 +126,22 @@ public class DragDrop : MonoBehaviour
         else if (cardId == 2 && DrawCards.drawablecardforEnemy)
         {
             Debug.Log("Enemy si pozrie prvé tri karty z balíèka.");
+            DropZone.SetActive(false);
+            gameManager.buttonToGetBackCards.SetActive(true);
+            areinViewArea = true;
+            drawCards.CanBeDrawed = false;
+            Debug.Log("Hráè si pozrie prvé tri karty z balíèka.");
+            for (int i = 0; i < 3 && i < drawCards.cardsInDeck.Count; i++)
+            {
+                gameManager.topThree.Add(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1 - i]);
+            }
+            for (int i = 0; i < 3 && i < drawCards.cardsInDeck.Count; i++)
+            {
+                GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
+                card.transform.SetParent(drawCards.ViewPlayerArea.transform, false);
+                drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
+            }
+            Debug.Log("boli vzate");
         }
         else if (cardId == 3 && DrawCards.drawablecardforPlayer)
         {
@@ -156,7 +172,7 @@ public class DragDrop : MonoBehaviour
         else if (cardId == 6 && DrawCards.drawablecardforPlayer)
         {
             DrawCards.drawablecardforPlayer = false;
-            DrawCards.drawablecardforEnemy = true;
+            DrawCards.drawablecardforEnemy = false;
         }
         else if (cardId == 6 && DrawCards.drawablecardforEnemy)
         {

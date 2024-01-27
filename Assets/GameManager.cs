@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     {
       drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
       dropZone = GameObject.Find("DropZone").GetComponent<DropZone>();
-        DropZone = GameObject.Find("DropZone");
     }
     public void Update()
     {
@@ -79,6 +78,7 @@ public class GameManager : MonoBehaviour
     public void GetBackCardsFromCamerasCard()
     {
         buttonToGetBackCards.SetActive(false);
+        DropZone.SetActive(true);
         for (int i = topThree.Count - 1; i >= 0; i--)
         {
             drawCards.cardsInDeck.Insert(drawCards.cardsInDeck.Count, topThree[i]);
@@ -93,7 +93,6 @@ public class GameManager : MonoBehaviour
         drawCards.CanBeDrawed = true;
         dragDrop.areinViewArea = false;
         topThree.Clear();
-        DropZone.SetActive(true);
 
     }
 
