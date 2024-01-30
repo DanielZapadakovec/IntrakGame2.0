@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DragDrop : MonoBehaviour
@@ -130,7 +131,6 @@ public class DragDrop : MonoBehaviour
             gameManager.buttonToGetBackCards.SetActive(true);
             areinViewArea = true;
             drawCards.CanBeDrawed = false;
-            Debug.Log("Hráè si pozrie prvé tri karty z balíèka.");
             for (int i = 0; i < 3 && i < drawCards.cardsInDeck.Count; i++)
             {
                 gameManager.topThree.Add(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1 - i]);
@@ -171,8 +171,8 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 6 && DrawCards.drawablecardforPlayer)
         {
+            DrawCards.drawablecardforEnemy = true;
             DrawCards.drawablecardforPlayer = false;
-            DrawCards.drawablecardforEnemy = false;
         }
         else if (cardId == 6 && DrawCards.drawablecardforEnemy)
         {
@@ -187,6 +187,7 @@ public class DragDrop : MonoBehaviour
 
         }
     }
+
 
 
 

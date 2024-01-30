@@ -17,25 +17,5 @@ public class MySideScript : MonoBehaviour
         drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
     }
 
-    // Metóda, ktorá sa volá po kliknutí na tlaèidlo
-    public void MoveObject()
-    {
-        if (drawCards.switchtoeplayerside == true)
-        {
-            MySide.transform.position = startPosition;
-        }
-        else
-        {
-            MySide.transform.position = targetPosition;
-        }
-        if (drawCards.switchtoenemyside == true)
-        {
-            EnemySide.transform.position = startPosition;
-        }
-        else
-        {
-            EnemySide.transform.position = targetPosition;
-        }
 
-    }
 }

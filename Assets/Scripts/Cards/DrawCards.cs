@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Apple;
 
@@ -12,8 +13,6 @@ public class DrawCards : MonoBehaviour
     public static List<GameObject> cardsEnemyDeck = new List<GameObject>();
     public bool StartGameWasExecuted;
     public static bool drawablecardforPlayer = true;
-    public bool switchtoenemyside;
-    public bool switchtoeplayerside;
     public static bool drawablecardforEnemy;
     public GameObject EnemyArea;
     public GameObject ViewEnemydArea;
@@ -23,6 +22,15 @@ public class DrawCards : MonoBehaviour
     public bool CanBeDrawed = true;
     public GameObject MyTurn;
     public GameObject EnemyTurn;
+
+
+    // positions from myscript
+    public Vector3 targetPosition;
+    public Vector3 startPosition1;
+    public Vector3 targetPositionForEnemy;
+    public Vector3 startPositionForEnemy;
+    public GameObject MySide;
+    public GameObject EnemySide;
 
     // Start is called before the first frame update
     void Start()
@@ -40,11 +48,15 @@ public class DrawCards : MonoBehaviour
         {
             ShowBackOfCard(cardsEnemyDeck, false);
             ShowBackOfCardforPlayer(cardsPlayerDeck, true);
+            MySide.transform.position = targetPosition;
+            EnemySide.transform.position = startPosition1;
         }
         else if (drawablecardforPlayer == true )
         {
             ShowBackOfCard(cardsEnemyDeck, true);
             ShowBackOfCardforPlayer(cardsPlayerDeck, false);
+            MySide.transform.position = startPosition1;
+            EnemySide.transform.position = targetPosition;
         }
     }
     
@@ -60,8 +72,6 @@ public class DrawCards : MonoBehaviour
                 cardsPlayerDeck.Add(card);
 
                 cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
-                switchtoenemyside = true;
-                switchtoeplayerside = false;
                 drawablecardforPlayer = false;
                 drawablecardforEnemy = true;
             }
@@ -74,9 +84,7 @@ public class DrawCards : MonoBehaviour
 
                 cardsInDeck.RemoveAt(cardsInDeck.Count - 1);
 
-                switchtoenemyside = false;
                 drawablecardforPlayer = true;
-                switchtoeplayerside = true;
                 drawablecardforEnemy = false;
             }
             else if (cardsPlayerDeck.Count < 1)
@@ -103,9 +111,7 @@ public class DrawCards : MonoBehaviour
     {
         drawablecardforEnemy = false;
 
-        switchtoenemyside = false;
         drawablecardforPlayer = true;
-        switchtoeplayerside = true;
 
         drawablecardforPlayer = true;
         ShuffleCardsInDeck();
@@ -137,9 +143,7 @@ public class DrawCards : MonoBehaviour
         }
         ShuffleCardsInDeck();
         drawablecardforEnemy = false;
-        switchtoenemyside = false;
         drawablecardforPlayer = true;
-        switchtoeplayerside = true;
         StartGameWasExecuted = true;
 
     }
@@ -182,6 +186,8 @@ public class DrawCards : MonoBehaviour
             cardsEnemyDeck[i].transform.position = new Vector2(i * xOffset, 0f);
         }
     }
+
+
 
 
 }
