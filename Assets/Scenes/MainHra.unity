@@ -461,6 +461,7 @@ GameObject:
   - component: {fileID: 580665154}
   - component: {fileID: 580665156}
   - component: {fileID: 580665155}
+  - component: {fileID: 580665157}
   m_Layer: 5
   m_Name: Turn
   m_TagString: Untagged
@@ -520,7 +521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your Turn
+  m_Text: Player Turn
 --- !u!222 &580665156
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -529,6 +530,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580665153}
   m_CullTransparentMesh: 1
+--- !u!114 &580665157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580665153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241179335e53f7d4b8d8b0fd80163aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitforTypeSeconds: 0.07
+  drawCards: {fileID: 1576194995}
 --- !u!1 &700906437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,6 +1648,10 @@ PrefabInstance:
       propertyPath: MyTurn
       value: 
       objectReference: {fileID: 580665153}
+    - target: {fileID: 3547981987896848339, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
+      propertyPath: turntext
+      value: 
+      objectReference: {fileID: 580665155}
     - target: {fileID: 3547981987896848339, guid: d01ae350f36c5904d89f3a71897ad5dc, type: 3}
       propertyPath: Camera_01
       value: 

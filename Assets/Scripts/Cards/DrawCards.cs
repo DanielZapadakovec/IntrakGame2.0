@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Apple;
+using UnityEngine.UI;
 
 public class DrawCards : MonoBehaviour
 {
@@ -32,6 +32,9 @@ public class DrawCards : MonoBehaviour
     public GameObject MySide;
     public GameObject EnemySide;
 
+
+    public Text turntext;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +53,7 @@ public class DrawCards : MonoBehaviour
             ShowBackOfCardforPlayer(cardsPlayerDeck, true);
             MySide.transform.position = targetPosition;
             EnemySide.transform.position = startPosition1;
+            if (StartGameWasExecuted) { turntext.text = ("Enemy Turn"); }
         }
         else if (drawablecardforPlayer == true )
         {
@@ -57,6 +61,7 @@ public class DrawCards : MonoBehaviour
             ShowBackOfCardforPlayer(cardsPlayerDeck, false);
             MySide.transform.position = startPosition1;
             EnemySide.transform.position = targetPosition;
+            if (StartGameWasExecuted) { turntext.text = ("Player Turn"); }
         }
     }
     
@@ -109,10 +114,6 @@ public class DrawCards : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        drawablecardforEnemy = false;
-
-        drawablecardforPlayer = true;
-
         drawablecardforPlayer = true;
         ShuffleCardsInDeck();
         for (int i = 0; i < 5; i++)
@@ -142,8 +143,6 @@ public class DrawCards : MonoBehaviour
             cardsInDeck.Add(vychovavatelprefab);
         }
         ShuffleCardsInDeck();
-        drawablecardforEnemy = false;
-        drawablecardforPlayer = true;
         StartGameWasExecuted = true;
 
     }

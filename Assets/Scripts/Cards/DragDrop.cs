@@ -145,11 +145,28 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 3 && DrawCards.drawablecardforPlayer)
         {
-            Debug.Log("Karta s ID 0 je v dropzóne. Vykonávam špecifickú akciu.");
+            DrawCards.drawablecardforEnemy = true;
+            DrawCards.drawablecardforPlayer = false;
+            GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
+            card.transform.SetParent(drawCards.EnemyArea.transform, false);
+
+            DrawCards.cardsEnemyDeck.Add(card);
+
+            drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
+            Debug.Log("Karta s ID 3 je v dropzóne. Enemy si berie 2 karty ");
         }
         else if (cardId == 3 && DrawCards.drawablecardforEnemy)
         {
-            Debug.Log("Karta s ID 0 je v dropzóne. Vykonávam špecifickú akciu.");
+            DrawCards.drawablecardforEnemy = false;
+            DrawCards.drawablecardforPlayer = true;
+            GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
+            card.transform.SetParent(drawCards.PlayerArea.transform, false);
+
+            DrawCards.cardsPlayerDeck.Add(card);
+
+            drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
+            Debug.Log("Karta s ID 3 je v dropzóne. Enemy si berie 2 karty ");
+            Debug.Log("Karta s ID 3 je v dropzóne. Player si berie 2 karty ");
         }
         else if (cardId == 4 && DrawCards.drawablecardforPlayer)
         {
