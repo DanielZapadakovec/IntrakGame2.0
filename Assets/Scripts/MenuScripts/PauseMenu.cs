@@ -7,13 +7,16 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject pauseMenu;
-
+    public AudioSource pausesound;
+    public AudioSource gamesound;
     public bool isPaused;
+    public 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        pausesound = GameObject.Find("PauseSound").GetComponent<AudioSource>();
+        gamesound = GameObject.Find("GameMusic").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,10 +27,12 @@ public class PauseMenu : MonoBehaviour
             if (isPaused )
             {
                 ResumeGame();
+
             }
             else
             {
                 PauseGame();
+
             }
         }
     }
@@ -37,6 +42,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        gamesound.Pause();
+        pausesound.Play();
     }
 
     public void ResumeGame()
@@ -44,5 +51,7 @@ public class PauseMenu : MonoBehaviour
      pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        gamesound.Play();
+        pausesound.Pause();
     }
 }

@@ -48,8 +48,6 @@ public class DrawCards : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         CanBeDrawed = true;
         DrawCardsImage.GetComponent<Image>();
-        drawablecardforPlayer = false;
-        drawablecardforEnemy = false;
     }
 
 
