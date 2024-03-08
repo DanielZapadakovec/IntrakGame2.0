@@ -90,7 +90,6 @@ GameObject:
   - component: {fileID: 6946775337599278359}
   - component: {fileID: -4670266339259411356}
   - component: {fileID: 7605522253337560594}
-  - component: {fileID: 397267230138995136}
   m_Layer: 6
   m_Name: "Vychov\xE1vatel"
   m_TagString: Untagged
@@ -189,6 +188,9 @@ MonoBehaviour:
   Canvas: {fileID: 0}
   deckposition: {x: 0, y: 0}
   drawCards: {fileID: 0}
+  gameManager: {fileID: 0}
+  areinViewArea: 0
+  DropZone: {fileID: 0}
 --- !u!61 &-4670266339259411356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -261,51 +263,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &397267230138995136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763565226985336209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 13
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6946775337599278359}
-          m_TargetAssemblyTypeName: DragDrop, Assembly-CSharp
-          m_MethodName: StartDrag
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 14
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6946775337599278359}
-          m_TargetAssemblyTypeName: DragDrop, Assembly-CSharp
-          m_MethodName: EndDrag
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &6726772806490017744
 GameObject:
   m_ObjectHideFlags: 0

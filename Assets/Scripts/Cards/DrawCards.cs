@@ -22,6 +22,12 @@ public class DrawCards : MonoBehaviour
     public bool CanBeDrawed = true;
     public GameObject MyTurn;
     public GameObject EnemyTurn;
+    public Sprite cards40;
+    public Sprite cards30;
+    public Sprite cards20;
+    public Sprite cards10;
+    public List<Sprite> carddeckimages = new List<Sprite>();
+    public Image DrawCardsImage;
 
 
     // positions from myscript
@@ -41,8 +47,11 @@ public class DrawCards : MonoBehaviour
         StartCoroutine(StartGame());
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         CanBeDrawed = true;
-        
+        DrawCardsImage.GetComponent<Image>();
+        drawablecardforPlayer = false;
+        drawablecardforEnemy = false;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -64,11 +73,32 @@ public class DrawCards : MonoBehaviour
             if (StartGameWasExecuted) { turntext.text = ("Player Turn"); }
         }
     }
-    
+
+    public void CheckDeckCount()
+    {
+        if (cardsInDeck.Count == 40)
+        {
+            DrawCardsImage.GetComponent<Image>().sprite = cards40;
+        }
+        if (cardsInDeck.Count == 30)
+        {
+            DrawCardsImage.GetComponent<Image>().sprite = cards30;
+        }
+        if (cardsInDeck.Count == 20)
+        {
+            DrawCardsImage.GetComponent<Image>().sprite = cards20;
+        }
+        if (cardsInDeck.Count == 10)
+        {
+            DrawCardsImage.GetComponent<Image>().sprite = cards10;
+        }
+    }
+
     public void OnClick()
     {
         if (CanBeDrawed == true)
         {
+            CheckDeckCount();
             if (cardsInDeck.Count > 0 && drawablecardforPlayer == true)
             {
                 GameObject card = Instantiate(cardsInDeck[cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
@@ -114,7 +144,7 @@ public class DrawCards : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        drawablecardforPlayer = true;
+        CanBeDrawed = false;
         ShuffleCardsInDeck();
         for (int i = 0; i < 5; i++)
         {
@@ -144,6 +174,8 @@ public class DrawCards : MonoBehaviour
         }
         ShuffleCardsInDeck();
         StartGameWasExecuted = true;
+        CanBeDrawed = true;
+        drawablecardforPlayer = true;
 
     }
     void ShowBackOfCard(List<GameObject> cardsEnemyDeck, bool showBack)
