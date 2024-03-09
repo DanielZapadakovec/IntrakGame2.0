@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject SettingPanel;
     public GameObject MainPanel;
+    public GameObject TutorialPanel;
+    public GameObject AskingPanel;
     public bool isInSettingPanel;
 
     private void Start()
@@ -27,7 +29,21 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
+        AskingPanel.SetActive(true);
+    }
+    public void ExitTutorial()
+    {
+        AskingPanel.SetActive(false);
+    }
+    public void InsistOnPlaying()
+    {
         SceneManager.LoadSceneAsync(1);
+    }
+    public void Tutorial() 
+    {
+        TutorialPanel.SetActive(true);
+        AskingPanel.SetActive(false);
+        MainPanel.SetActive(false);
     }
     public void QuitGame()
     {
