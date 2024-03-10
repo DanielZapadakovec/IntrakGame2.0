@@ -855,7 +855,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2011105092913338272, guid: 7c7692a188d32a1459d4e2291ed88551, type: 3}
+    - {fileID: 8130178002702555816, guid: 7c7692a188d32a1459d4e2291ed88551, type: 3}
+    - {fileID: 7080560000880590291, guid: 7c7692a188d32a1459d4e2291ed88551, type: 3}
+    - {fileID: 1279491109895909210, guid: 7c7692a188d32a1459d4e2291ed88551, type: 3}
+    - {fileID: 1745818632028599574, guid: 7c7692a188d32a1459d4e2291ed88551, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

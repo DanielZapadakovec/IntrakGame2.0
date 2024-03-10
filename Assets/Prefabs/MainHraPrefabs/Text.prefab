@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4277565534090133303}
   - component: {fileID: 8449372539061400242}
   - component: {fileID: 3518250236078481700}
-  - component: {fileID: 8844644714207013615}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -80,15 +79,3 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Nevyhovoril si sa od vychovavatela
---- !u!114 &8844644714207013615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6610632119881690815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe733fba2bf6cee46b2b6fcd502c0147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

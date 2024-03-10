@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2539263209341184369}
   - component: {fileID: 7583771531236452470}
   - component: {fileID: 3270051177089290139}
-  - component: {fileID: 1745818632028599574}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -80,18 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 10
---- !u!114 &1745818632028599574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7885751564301987149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe733fba2bf6cee46b2b6fcd502c0147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &267791478846536621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,7 +171,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuitGameButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1756266979965152269, guid: 29de79632d071f2419b2c0b620d76fd8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -286,7 +274,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 578431997494132952, guid: edde0932f57483d4193a9a0ac7c34b5b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -388,7 +377,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResumeButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9191826091999383969, guid: c27f7796281a3d74b93dd8ad960b95d7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -490,7 +480,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'MainMenuButton '
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3101485732658763819, guid: 6466112f99c5e44469d45a60a1aa4602, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

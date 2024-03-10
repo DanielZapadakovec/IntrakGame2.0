@@ -168,7 +168,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turn
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2776623444115825448, guid: 56fee4a28499a1d4ba6a20696f4e0d97, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
