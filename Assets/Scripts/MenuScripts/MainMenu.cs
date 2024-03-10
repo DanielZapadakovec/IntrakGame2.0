@@ -13,6 +13,12 @@ public class MainMenu : MonoBehaviour
     public GameObject WaitPanel;
     public bool isInSettingPanel;
 
+
+    // Main Hra Objekty na odstránenie
+    public GameObject MySide;
+    public GameObject EnemySide;
+    public GameManager gameManager;
+
     private void Start()
     {
         isInSettingPanel = false;
@@ -53,6 +59,11 @@ public class MainMenu : MonoBehaviour
 
     public void Menu_Button()
     {
+        DrawCards.cardsPlayerDeck.Clear();
+        DrawCards.cardsEnemyDeck.Clear();
+        gameManager.topThree.Clear();
+        Destroy(MySide);
+        Destroy(EnemySide);
         SceneManager.LoadScene(0);
    
     }
