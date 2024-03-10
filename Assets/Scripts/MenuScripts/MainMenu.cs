@@ -53,6 +53,7 @@ public class MainMenu : MonoBehaviour
     public void Menu_Button()
     {
         SceneManager.LoadScene(0);
+   
     }
     public void Lore_Button()
     {
