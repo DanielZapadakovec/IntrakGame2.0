@@ -17,11 +17,13 @@ public class PauseMenu : MonoBehaviour
     {
         pausesound = GameObject.Find("PauseSound").GetComponent<AudioSource>();
         gamesound = GameObject.Find("GameMusic").GetComponent<AudioSource>();
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Time.timeScale);
         if(Input.GetKeyUp(KeyCode.Escape))
         {
             if (isPaused )

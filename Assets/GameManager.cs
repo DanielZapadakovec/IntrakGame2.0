@@ -27,19 +27,36 @@ public class GameManager : MonoBehaviour
 
     public void CheckGameOver()
     {
-
-
         foreach (var card in DrawCards.cardsPlayerDeck)
         {
-            int cardId = card.GetComponent<CardIdentity>().ID;
+            // Check if the card is not null
+            if (card != null)
+            {
+                // Try to get the CardIdentity component
+                CardIdentity cardIdentity = card.GetComponent<CardIdentity>();
 
-            if (cardId == 0)
-            {
-                hasCardWithID0 = true;
+                // Check if the CardIdentity component is not null
+                if (cardIdentity != null)
+                {
+                    int cardId = cardIdentity.ID;
+
+                    if (cardId == 0)
+                    {
+                        hasCardWithID0 = true;
+                    }
+                    else if (cardId == 1)
+                    {
+                        hasCardWithID1 = true;
+                    }
+                }
+                else
+                {
+                    Debug.LogError("CardIdentity component is null for a card.");
+                }
             }
-            else if (cardId == 1)
+            else
             {
-                hasCardWithID1 = true;
+                Debug.LogError("Card GameObject is null in cardsPlayerDeck.");
             }
         }
 

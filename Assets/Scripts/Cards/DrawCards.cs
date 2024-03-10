@@ -29,8 +29,6 @@ public class DrawCards : MonoBehaviour
     public Sprite cards10;
     public List<Sprite> carddeckimages = new List<Sprite>();
     public Image DrawCardsImage;
-    public GameObject WaitPanel;
-
 
 
     // positions from myscript
@@ -40,7 +38,6 @@ public class DrawCards : MonoBehaviour
     public Vector3 startPositionForEnemy;
     public GameObject MySide;
     public GameObject EnemySide;
-
 
 
     // pick color at the start of the game
@@ -63,6 +60,7 @@ public class DrawCards : MonoBehaviour
     // sound for cardshuffle
     public AudioSource shuffleSound;
 
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -84,21 +82,15 @@ public class DrawCards : MonoBehaviour
             ShowBackOfCardforPlayer(cardsPlayerDeck, true);
             MySide.transform.position = targetPosition;
             EnemySide.transform.position = startPosition1;
-            if (StartGameWasExecuted) 
-            {
-                turntext.text = ("Enemy Turn");
-            }
+            if (StartGameWasExecuted) { turntext.text = ("Enemy Turn"); }
         }
         else if (drawablecardforPlayer == true )
         {
-            ShowBackOfCard(cardsEnemyDeck, true);
+            ShowBackOfCard(cardsEnemyDeck, true) ;
             ShowBackOfCardforPlayer(cardsPlayerDeck, false);
             MySide.transform.position = startPosition1;
             EnemySide.transform.position = targetPosition;
-            if (StartGameWasExecuted) 
-            { 
-                turntext.text = ("Player Turn"); 
-            }
+            if (StartGameWasExecuted) { turntext.text = ("Player Turn"); }
         }
 
         if (pickcolorplayer == false && pickcolorenemy == false)
@@ -198,7 +190,6 @@ public class DrawCards : MonoBehaviour
     {
         if (CanBeDrawed == true)
         {
-            WaitPanel.SetActive(true);
             CheckDeckCount();
             if (cardsInDeck.Count > 0 && drawablecardforPlayer == true)
             {
