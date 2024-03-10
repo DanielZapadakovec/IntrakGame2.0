@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject MainPanel;
     public GameObject TutorialPanel;
     public GameObject AskingPanel;
+    public GameObject WaitPanel;
     public bool isInSettingPanel;
 
     private void Start()
@@ -54,6 +55,7 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
     public void Lore_Button()
     {
         SceneManager.LoadScene(2);
@@ -75,5 +77,8 @@ public class MainMenu : MonoBehaviour
             SettingPanel.SetActive(false);
         }
     }
-
+    public void Resume()
+    {
+        WaitPanel.SetActive(false);
+    }
 }

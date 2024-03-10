@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DragDrop : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class DragDrop : MonoBehaviour
     public GameManager gameManager;
     public bool areinViewArea;
     public GameObject DropZone;
+    public Text logtext;
 
     void Start()
     {
