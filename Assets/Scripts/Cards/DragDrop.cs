@@ -21,6 +21,7 @@ public class DragDrop : MonoBehaviour
     public GameObject DropZone;
     public Text logtext;
 
+
     void Start()
     {
         Canvas = GameObject.Find("MainCanvas");

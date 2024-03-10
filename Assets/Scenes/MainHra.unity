@@ -215,7 +215,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 06dae77cd5bdf1e4081f95eb4c5495f3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.736
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -823,6 +823,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 384476712}
+    - target: {fileID: 1071253654030233041, guid: 3526d80550fd83d499f42791103c249f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1847709376318202647, guid: 3526d80550fd83d499f42791103c249f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1034,6 +1038,14 @@ PrefabInstance:
     - target: {fileID: 7862388684267229017, guid: 3526d80550fd83d499f42791103c249f, type: 3}
       propertyPath: m_Name
       value: MainCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058737308368404750, guid: 3526d80550fd83d499f42791103c249f, type: 3}
+      propertyPath: m_Spacing.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058737308368404750, guid: 3526d80550fd83d499f42791103c249f, type: 3}
+      propertyPath: m_StartCorner
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

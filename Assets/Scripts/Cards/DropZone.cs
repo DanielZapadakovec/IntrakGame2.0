@@ -18,6 +18,8 @@ public class DropZone : MonoBehaviour
     {
         discardPile.Add(card);
         card.transform.position = lastCardPosition;
+        float randomRotation = Random.Range(0f, 360f);
+        card.transform.rotation = Quaternion.Euler(0f, 0f, randomRotation);
 
         lastCardPosition.y += cardOffset;
     }
