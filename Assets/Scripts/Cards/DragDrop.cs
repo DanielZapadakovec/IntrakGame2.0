@@ -22,6 +22,11 @@ public class DragDrop : MonoBehaviour
     public Text logtext;
 
 
+    private int lastDroppedCardId = -1;
+    private bool lastDroppedCardByPlayer = false;
+    private bool lastDroppedCardByEnemy = false;
+
+
     void Start()
     {
         Canvas = GameObject.Find("MainCanvas");
@@ -202,14 +207,53 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 7 && DrawCards.drawablecardforPlayer)
         {
+            if (lastDroppedCardId == 7 && lastDroppedCardByPlayer)
+            {
+               
+                TakeRandomCardFromEnemy();
+            }
+
+            lastDroppedCardByPlayer = true;
         }
         else if (cardId == 7 && DrawCards.drawablecardforEnemy)
         {
-
+            if (cardId == 7 && lastDroppedCardByEnemy)
+            {
+                TakeRandomCardFromPlayer();
+            }
+            lastDroppedCardByEnemy = true;
         }
+
     }
 
 
+    private void TakeRandomCardFromEnemy()
+    {
+        if (DrawCards.cardsEnemyDeck.Count > 0)
+        {
+            Debug.Log("BeremKartu7");
+            int randomIndex = Random.Range(0, DrawCards.cardsEnemyDeck.Count);
+            GameObject randomCard = DrawCards.cardsEnemyDeck[randomIndex];
+            DrawCards.cardsPlayerDeck.Add(randomCard);
+            DrawCards.cardsEnemyDeck.Remove(randomCard);
+            Destroy(randomCard);
+            
+            lastDroppedCardByPlayer = false;
+        }
+    }
+
+    private void TakeRandomCardFromPlayer()
+    {
+        if (DrawCards.cardsPlayerDeck.Count > 0)
+        {
+            int randomIndex = Random.Range(0, DrawCards.cardsPlayerDeck.Count);
+            GameObject randomCard = DrawCards.cardsPlayerDeck[randomIndex];
+            DrawCards.cardsEnemyDeck.Add(randomCard);
+            DrawCards.cardsPlayerDeck.Remove(randomCard);
+            lastDroppedCardByEnemy = false;
+
+        }
+    }
 
 
 }
