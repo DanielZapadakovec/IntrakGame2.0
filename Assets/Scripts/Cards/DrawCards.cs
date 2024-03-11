@@ -29,6 +29,7 @@ public class DrawCards : MonoBehaviour
     public Sprite cards10;
     public List<Sprite> carddeckimages = new List<Sprite>();
     public Image DrawCardsImage;
+    public GameObject WaitPanel;
 
 
     // positions from myscript
@@ -190,6 +191,7 @@ public class DrawCards : MonoBehaviour
     {
         if (CanBeDrawed == true)
         {
+            WaitPanel.SetActive(true);
             CheckDeckCount();
             if (cardsInDeck.Count > 0 && drawablecardforPlayer == true)
             {
