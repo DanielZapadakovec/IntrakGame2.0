@@ -61,6 +61,9 @@ public class DrawCards : MonoBehaviour
     // sound for cardshuffle
     public AudioSource shuffleSound;
 
+    // sound for DrawCard
+    public AudioSource CardDrawSound;
+
 
     void Start()
     {
@@ -195,6 +198,7 @@ public class DrawCards : MonoBehaviour
             CheckDeckCount();
             if (cardsInDeck.Count > 0 && drawablecardforPlayer == true)
             {
+                CardDrawSound.Play();
                 GameObject card = Instantiate(cardsInDeck[cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
                 card.transform.SetParent(PlayerArea.transform, false);
 
@@ -206,6 +210,7 @@ public class DrawCards : MonoBehaviour
             }
             else if (cardsInDeck.Count > 0 && drawablecardforEnemy == true)
             {
+                CardDrawSound.Play();
                 GameObject card = Instantiate(cardsInDeck[cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
                 card.transform.SetParent(EnemyArea.transform, false);
 

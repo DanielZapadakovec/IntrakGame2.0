@@ -10,7 +10,8 @@ public class PauseMenu : MonoBehaviour
     public AudioSource pausesound;
     public AudioSource gamesound;
     public bool isPaused;
-    public 
+    public GameObject PauseButton;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class PauseMenu : MonoBehaviour
         pausesound = GameObject.Find("PauseSound").GetComponent<AudioSource>();
         gamesound = GameObject.Find("GameMusic").GetComponent<AudioSource>();
         Time.timeScale = 1f;
+        isPaused = false;
     }
 
     // Update is called once per frame
@@ -45,14 +47,17 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         gamesound.Pause();
         pausesound.Play();
+        PauseButton.SetActive(false);
     }
 
     public void ResumeGame()
     {
-     pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
-        gamesound.Play();
-        pausesound.Pause();
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+            isPaused = false;
+            gamesound.Play();
+            pausesound.Pause();
+        PauseButton.SetActive(true);
+
     }
 }
