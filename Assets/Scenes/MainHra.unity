@@ -154,7 +154,7 @@ AudioSource:
   m_GameObject: {fileID: 373746653}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: d3e4267bc6a7cc34abed7a046a74aca3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4f722542dacad6944b8229671431de8b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -340,7 +340,7 @@ AudioSource:
   m_GameObject: {fileID: 436431126}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: d3e4267bc6a7cc34abed7a046a74aca3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 06dae77cd5bdf1e4081f95eb4c5495f3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -612,7 +612,7 @@ AudioSource:
   m_GameObject: {fileID: 694221821}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: d3e4267bc6a7cc34abed7a046a74aca3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 90f4acb8a8641224fb182df486a0ca63, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
@@ -745,7 +745,7 @@ AudioSource:
   m_GameObject: {fileID: 830291426}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: d3e4267bc6a7cc34abed7a046a74aca3, type: 2}
   m_audioClip: {fileID: 8300000, guid: c4890af02dde0714dad086c49cdfd18c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.469
@@ -962,6 +962,8 @@ MonoBehaviour:
   MySide: {fileID: 10369938}
   EnemySide: {fileID: 1802464084}
   gameManager: {fileID: 384476712}
+  myMixer: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!114 &1034481544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1522,6 +1524,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2381200231343468637, guid: 3526d80550fd83d499f42791103c249f, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509244643373108595, guid: 3526d80550fd83d499f42791103c249f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3899730126028367934, guid: 3526d80550fd83d499f42791103c249f, type: 3}

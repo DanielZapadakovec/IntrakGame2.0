@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -12,16 +14,17 @@ public class MainMenu : MonoBehaviour
     public GameObject AskingPanel;
     public GameObject WaitPanel;
     public bool isInSettingPanel;
-
-
-    // Main Hra Objekty na odstránenie
     public GameObject MySide;
     public GameObject EnemySide;
     public GameManager gameManager;
+    [SerializeField] private AudioMixer myMixer;
+    [SerializeField] private Slider musicSlider;
 
     private void Start()
     {
         isInSettingPanel = false;
+
+        SetMusicVolume();
     }
     void Update()
     {
@@ -59,25 +62,21 @@ public class MainMenu : MonoBehaviour
 
     public void Menu_Button()
     {
-        DrawCards.cardsPlayerDeck.Clear();
-        DrawCards.cardsEnemyDeck.Clear();
-        gameManager.topThree.Clear();
-        Destroy(MySide);
-        Destroy(EnemySide);
-        SceneManager.LoadScene(0);
-   
+
+        SceneManager.UnloadSceneAsync("MainHra");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     public void Lore_Button()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadSceneAsync(2);
     }
 
     public void Setting_Button()
     {
             SettingPanel.SetActive(true);
             MainPanel.SetActive(false);
-        isInSettingPanel=true;
+            isInSettingPanel=true;
 
     }
 
@@ -93,4 +92,10 @@ public class MainMenu : MonoBehaviour
     {
         WaitPanel.SetActive(false);
     }
+    public void SetMusicVolume()
+    {
+        float volume = musicSlider.value;
+        myMixer.SetFloat("master", Mathf.Log10(volume) * 20);
+    }
+
 }
