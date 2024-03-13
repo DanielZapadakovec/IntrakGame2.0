@@ -59,13 +59,16 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+        public void Menu_Button()
+        {
+            DrawCards.cardsPlayerDeck.Clear();
+            DrawCards.cardsEnemyDeck.Clear();
+            gameManager.topThree.Clear();
+            Destroy(MySide);
+            Destroy(EnemySide);
+            SceneManager.LoadScene(0);
+        }
 
-    public void Menu_Button()
-    {
-
-        SceneManager.UnloadSceneAsync("MainHra");
-        SceneManager.LoadSceneAsync("MainMenu");
-    }
 
     public void Lore_Button()
     {
