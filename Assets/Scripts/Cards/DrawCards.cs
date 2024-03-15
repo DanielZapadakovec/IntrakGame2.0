@@ -64,6 +64,10 @@ public class DrawCards : MonoBehaviour
     // sound for DrawCard
     public AudioSource CardDrawSound;
 
+    // RandomCardsIndexes
+    public static bool LastDroppedCardByPlayer;
+    public static bool LastDroppedCardByEnemy;
+
 
     void Start()
     {
@@ -97,7 +101,7 @@ public class DrawCards : MonoBehaviour
             if (StartGameWasExecuted) { turntext.text = ("Player Turn"); }
         }
 
-        if (pickcolorplayer == false && pickcolorenemy == false)
+        if (colorspicked == true)
         {
             Playertext.text = ("");
             OdpocetCisloObjekt.gameObject.SetActive(true);  
@@ -123,6 +127,7 @@ public class DrawCards : MonoBehaviour
         {
             Background_Enemy_color = new Color32(142, 182, 202, 255);
             pickcolorenemy = false;
+            colorspicked = true;
         }
     }
     public void YellowColorpick()
@@ -138,6 +143,7 @@ public class DrawCards : MonoBehaviour
         {
             Background_Enemy_color = new Color32(202, 181, 142, 255);
             pickcolorenemy = false;
+            colorspicked = true;
         }
     }
     public void WhiteColorpick()
@@ -153,6 +159,7 @@ public class DrawCards : MonoBehaviour
         {
             Background_Enemy_color = new Color32(255, 255, 255, 255);
             pickcolorenemy = false;
+            colorspicked = true;
         }
     }
     public void RedColorpick()
@@ -167,6 +174,7 @@ public class DrawCards : MonoBehaviour
         {
             Background_Enemy_color = new Color32(255, 160, 155, 255);
             pickcolorenemy = false;
+            colorspicked = true;
         }
     }
 
@@ -313,6 +321,7 @@ public class DrawCards : MonoBehaviour
             colorpickpanel.gameObject.SetActive(false);
             BackgroundImage.gameObject.SetActive(true);
             pickcolorenemy = true;
+            colorspicked = false;
             StartCoroutine(StartGame());
         }
 

@@ -21,10 +21,7 @@ public class DragDrop : MonoBehaviour
     public GameObject DropZone;
     public Text logtext;
 
-
-    private int lastDroppedCardId = -1;
-    private bool lastDroppedCardByPlayer = false;
-    private bool lastDroppedCardByEnemy = false;
+    public int a = 10;
 
 
     void Start()
@@ -130,7 +127,7 @@ public class DragDrop : MonoBehaviour
                 card.transform.SetParent(drawCards.ViewPlayerArea.transform, false);
                 drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
             }
-        Debug.Log("boli vzate");
+            Debug.Log("boli vzate");
 
         }
         else if (cardId == 2 && DrawCards.drawablecardforEnemy)
@@ -207,21 +204,23 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 7 && DrawCards.drawablecardforPlayer)
         {
-            if (lastDroppedCardId == 7 && lastDroppedCardByPlayer)
+            if (DrawCards.LastDroppedCardByPlayer)
             {
-               
+
                 TakeRandomCardFromEnemy();
             }
-
-            lastDroppedCardByPlayer = true;
+            DrawCards.LastDroppedCardByPlayer = true;
+            Debug.Log("prvarandomkarta1tamjeFromPlayer");
+            
         }
         else if (cardId == 7 && DrawCards.drawablecardforEnemy)
         {
-            if (cardId == 7 && lastDroppedCardByEnemy)
+            if (DrawCards.LastDroppedCardByEnemy)
             {
                 TakeRandomCardFromPlayer();
             }
-            lastDroppedCardByEnemy = true;
+            DrawCards.LastDroppedCardByEnemy = true;
+            Debug.Log("prvarandomkarta1tamjeFromEnemy");
         }
 
     }
@@ -231,14 +230,18 @@ public class DragDrop : MonoBehaviour
     {
         if (DrawCards.cardsEnemyDeck.Count > 0)
         {
-            Debug.Log("BeremKartu7");
+            Debug.Log("odhodil dve karty tie isté");
             int randomIndex = Random.Range(0, DrawCards.cardsEnemyDeck.Count);
             GameObject randomCard = DrawCards.cardsEnemyDeck[randomIndex];
-            DrawCards.cardsPlayerDeck.Add(randomCard);
+            GameObject newCardObject = Instantiate(randomCard, drawCards.PlayerArea.transform.position, Quaternion.identity);
+            newCardObject.transform.SetParent(drawCards.PlayerArea.transform, false);
+
             DrawCards.cardsEnemyDeck.Remove(randomCard);
+
+            DrawCards.cardsPlayerDeck.Add(newCardObject);
+
             Destroy(randomCard);
-            
-            lastDroppedCardByPlayer = false;
+            DrawCards.LastDroppedCardByPlayer = false;
         }
     }
 
@@ -246,12 +249,18 @@ public class DragDrop : MonoBehaviour
     {
         if (DrawCards.cardsPlayerDeck.Count > 0)
         {
+            Debug.Log("odhodil dve karty tie isté");
             int randomIndex = Random.Range(0, DrawCards.cardsPlayerDeck.Count);
             GameObject randomCard = DrawCards.cardsPlayerDeck[randomIndex];
-            DrawCards.cardsEnemyDeck.Add(randomCard);
-            DrawCards.cardsPlayerDeck.Remove(randomCard);
-            lastDroppedCardByEnemy = false;
+            GameObject newCardObject = Instantiate(randomCard, drawCards.EnemyArea.transform.position, Quaternion.identity);
+            newCardObject.transform.SetParent(drawCards.EnemyArea.transform, false);
 
+            DrawCards.cardsPlayerDeck.Remove(randomCard);
+
+            DrawCards.cardsEnemyDeck.Add(newCardObject);
+
+            Destroy(randomCard);
+            DrawCards.LastDroppedCardByEnemy = false;
         }
     }
 
