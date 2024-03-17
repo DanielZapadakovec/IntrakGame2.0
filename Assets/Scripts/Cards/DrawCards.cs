@@ -210,6 +210,14 @@ public class DrawCards : MonoBehaviour
     {
         if (CanBeDrawed == true)
         {
+            LastDroppedCardByPlayer = false;
+            LastDroppedCardByEnemy = false;
+
+            LastDroppedCardByPlayer8 = false;
+            LastDroppedCardByEnemy8 = false;
+
+            LastDroppedCardByPlayer9 = false;
+            LastDroppedCardByEnemy9 = false;
             WaitPanel.SetActive(true);
             CheckDeckCount();
             if (cardsInDeck.Count > 0 && drawablecardforPlayer == true)

@@ -102,15 +102,7 @@ public class DragDrop : MonoBehaviour
     public void TestingCard()
     {
         int cardId = GetComponent<CardIdentity>().ID;
-        if (cardId == 0 && DrawCards.drawablecardforPlayer)
-        {
-            Debug.Log("Karta s ID 0 je v dropzóne. Vykonávam špecifickú akciu.");
-        }
-        else if (cardId == 0 && DrawCards.drawablecardforEnemy)
-        {
-            Debug.Log("Karta s ID 0 je v dropzóne. Vykonávam špecifickú akciu.");
-        }
-        else if (cardId == 2 && DrawCards.drawablecardforPlayer)
+         if (cardId == 2 && DrawCards.drawablecardforPlayer)
         {
             DropZone.SetActive(false);
             gameManager.buttonToGetBackCards.SetActive(true);
@@ -259,7 +251,7 @@ public class DragDrop : MonoBehaviour
             {
                 TakeRandomCardFromPlayer();
             }
-            DrawCards.LastDroppedCardByEnemy = true;
+            DrawCards.LastDroppedCardByEnemy9 = true;
             Debug.Log("prvarandomkarta3tamjeFromEnemy");
         }
 
