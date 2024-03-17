@@ -23,6 +23,8 @@ public class DrawCards : MonoBehaviour
     public bool CanBeDrawed = true;
     public GameObject MyTurn;
     public GameObject EnemyTurn;
+
+    [Header("DeckCardsChange")]
     public Sprite cards40;
     public Sprite cards30;
     public Sprite cards20;
@@ -33,6 +35,8 @@ public class DrawCards : MonoBehaviour
 
 
     // positions from myscript
+
+    [Header("ChangingCharacterPositions")]
     public Vector3 targetPosition;
     public Vector3 startPosition1;
     public Vector3 targetPositionForEnemy;
@@ -42,7 +46,7 @@ public class DrawCards : MonoBehaviour
 
 
     // pick color at the start of the game
-
+    [Header("ColorPick")]
     public Color Background_Player_Color;
     public Color Background_Enemy_color;
     public bool pickcolorplayer;
@@ -55,18 +59,22 @@ public class DrawCards : MonoBehaviour
     public GameObject OdpocetCisloObjekt;
     public float timeStart = 3;
     public GameObject ColorGroup;
-
     public Text turntext;
-
+    [Header("Sounds")]
     // sound for cardshuffle
     public AudioSource shuffleSound;
 
     // sound for DrawCard
     public AudioSource CardDrawSound;
 
-    // RandomCardsIndexes
     public static bool LastDroppedCardByPlayer;
     public static bool LastDroppedCardByEnemy;
+
+    public static bool LastDroppedCardByPlayer8;
+    public static bool LastDroppedCardByEnemy8;
+
+    public static bool LastDroppedCardByPlayer9;
+    public static bool LastDroppedCardByEnemy9;
 
 
     void Start()

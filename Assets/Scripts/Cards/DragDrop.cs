@@ -176,11 +176,11 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 4 && DrawCards.drawablecardforPlayer)
         {
-            Debug.Log("Karta s ID 0 je v dropzóne. Vykonávam špecifickú akciu.");
+            TakeRandomCardFromEnemy();
         }
         else if (cardId == 4 && DrawCards.drawablecardforEnemy)
         {
-            Debug.Log("Karta s ID 0 je v dropzóne. Vykonávam špecifickú akciu.");
+            TakeRandomCardFromPlayer();
         }
         else if (cardId == 5 && DrawCards.drawablecardforPlayer)
         {
@@ -222,6 +222,46 @@ public class DragDrop : MonoBehaviour
             DrawCards.LastDroppedCardByEnemy = true;
             Debug.Log("prvarandomkarta1tamjeFromEnemy");
         }
+        else if (cardId == 8 && DrawCards.drawablecardforPlayer)
+        {
+            if (DrawCards.LastDroppedCardByPlayer8)
+            {
+
+                TakeRandomCardFromEnemy();
+            }
+            DrawCards.LastDroppedCardByPlayer8 = true;
+            Debug.Log("prvarandomkarta2tamjeFromPlayer");
+
+        }
+        else if (cardId == 8 && DrawCards.drawablecardforEnemy)
+        {
+            if (DrawCards.LastDroppedCardByEnemy8)
+            {
+                TakeRandomCardFromPlayer();
+            }
+            DrawCards.LastDroppedCardByEnemy8 = true;
+            Debug.Log("prvarandomkarta2tamjeFromEnemy");
+        }
+        else if (cardId == 9 && DrawCards.drawablecardforPlayer)
+        {
+            if (DrawCards.LastDroppedCardByPlayer9)
+            {
+
+                TakeRandomCardFromEnemy();
+            }
+            DrawCards.LastDroppedCardByPlayer9 = true;
+            Debug.Log("prvarandomkarta3tamjeFromPlayer");
+
+        }
+        else if (cardId == 9 && DrawCards.drawablecardforEnemy)
+        {
+            if (DrawCards.LastDroppedCardByEnemy9)
+            {
+                TakeRandomCardFromPlayer();
+            }
+            DrawCards.LastDroppedCardByEnemy = true;
+            Debug.Log("prvarandomkarta3tamjeFromEnemy");
+        }
 
     }
 
@@ -230,7 +270,6 @@ public class DragDrop : MonoBehaviour
     {
         if (DrawCards.cardsEnemyDeck.Count > 0)
         {
-            Debug.Log("odhodil dve karty tie isté");
             int randomIndex = Random.Range(0, DrawCards.cardsEnemyDeck.Count);
             GameObject randomCard = DrawCards.cardsEnemyDeck[randomIndex];
             GameObject newCardObject = Instantiate(randomCard, drawCards.PlayerArea.transform.position, Quaternion.identity);
@@ -242,6 +281,8 @@ public class DragDrop : MonoBehaviour
 
             Destroy(randomCard);
             DrawCards.LastDroppedCardByPlayer = false;
+            DrawCards.LastDroppedCardByPlayer8 = false;
+            DrawCards.LastDroppedCardByPlayer9 = false;
         }
     }
 
@@ -249,7 +290,6 @@ public class DragDrop : MonoBehaviour
     {
         if (DrawCards.cardsPlayerDeck.Count > 0)
         {
-            Debug.Log("odhodil dve karty tie isté");
             int randomIndex = Random.Range(0, DrawCards.cardsPlayerDeck.Count);
             GameObject randomCard = DrawCards.cardsPlayerDeck[randomIndex];
             GameObject newCardObject = Instantiate(randomCard, drawCards.EnemyArea.transform.position, Quaternion.identity);
@@ -261,6 +301,9 @@ public class DragDrop : MonoBehaviour
 
             Destroy(randomCard);
             DrawCards.LastDroppedCardByEnemy = false;
+            DrawCards.LastDroppedCardByEnemy8 = false;
+            DrawCards.LastDroppedCardByEnemy9 = false;
+
         }
     }
 

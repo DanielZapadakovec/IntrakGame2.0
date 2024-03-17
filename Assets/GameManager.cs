@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public bool hasCardWithID0 = false;
     public bool hasCardWithID1 = false;
+
+    public bool hasCardWithID0Enemy;
+    public bool hasCardWithID1Enemy;
     public GameObject endGamePanel;
     public DrawCards drawCards;
     public DropZone dropZone;
@@ -29,13 +32,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (var card in DrawCards.cardsPlayerDeck)
         {
-            // Check if the card is not null
-            if (card != null)
-            {
-                // Try to get the CardIdentity component
                 CardIdentity cardIdentity = card.GetComponent<CardIdentity>();
 
-                // Check if the CardIdentity component is not null
                 if (cardIdentity != null)
                 {
                     int cardId = cardIdentity.ID;
@@ -49,29 +47,39 @@ public class GameManager : MonoBehaviour
                         hasCardWithID1 = true;
                     }
                 }
-                else
-                {
-                    Debug.LogError("CardIdentity component is null for a card.");
-                }
-            }
-            else
+        }
+        foreach (var card in DrawCards.cardsEnemyDeck)
+        {
+            CardIdentity cardIdentity2 = card.GetComponent<CardIdentity>();
+
+            if (cardIdentity2 != null)
             {
-                Debug.LogError("Card GameObject is null in cardsPlayerDeck.");
+                int cardId = cardIdentity2.ID;
+
+                if (cardId == 0)
+                {
+                    hasCardWithID0Enemy = true;
+                }
+                else if (cardId == 1)
+                {
+                    hasCardWithID1Enemy = true;
+                }
             }
         }
 
         // Ak hráè nemá žiadnu kartu s ID 0, prehráva
-        if (hasCardWithID1 && !hasCardWithID0)
+        if (hasCardWithID1 && !hasCardWithID0 || !hasCardWithID0Enemy && hasCardWithID1Enemy)
         {
+            drawCards.CanBeDrawed = false;
             endGamePanel.SetActive(true);
         }
 
-        if (hasCardWithID0 && hasCardWithID1)
+
+        if (hasCardWithID0 && hasCardWithID1 || hasCardWithID0Enemy && hasCardWithID1Enemy)
         {
             drawCards.CanBeDrawed = false;
             int indexCardWithID0 = DrawCards.cardsPlayerDeck.FindIndex(card => card.GetComponent<CardIdentity>().ID == 0);
 
-            // Ak sa našla karta s ID 0, pridajte ju do discardPile, odstráòte ju z cardsPlayerDeck a zniète ju
             if (indexCardWithID0 != -1)
             {
                 GameObject cardWithID0 = DrawCards.cardsPlayerDeck[indexCardWithID0];
@@ -80,7 +88,6 @@ public class GameManager : MonoBehaviour
                 Destroy(cardWithID0);
             }
 
-            // Presun karty s ID 1 spä do decku a zniète ju
             GameObject cardWithID1 = DrawCards.cardsPlayerDeck.Find(card => card.GetComponent<CardIdentity>().ID == 1);
             if (cardWithID1 != null)
             {
