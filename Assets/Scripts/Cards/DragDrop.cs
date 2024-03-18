@@ -20,13 +20,12 @@ public class DragDrop : MonoBehaviour
     public bool areinViewArea;
     public GameObject DropZone;
     public Text logtext;
-    public GameObject WaitPanel;
+    
     public int a = 10;
 
 
     void Start()
     {
-        WaitPanel = GameObject.Find("WaitPanel").GetComponent<GameObject>();
         Canvas = GameObject.Find("MainCanvas");
         drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -149,7 +148,7 @@ public class DragDrop : MonoBehaviour
             GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
             card.transform.SetParent(drawCards.EnemyArea.transform, false);
 
-            WaitPanel.SetActive(true);
+            DrawCards.NeedToWaitPanel = true;
 
             DrawCards.cardsEnemyDeck.Add(card);
             drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
@@ -163,7 +162,7 @@ public class DragDrop : MonoBehaviour
             GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
             card.transform.SetParent(drawCards.PlayerArea.transform, false);
 
-            WaitPanel.SetActive(true);
+            DrawCards.NeedToWaitPanel = true;
 
             DrawCards.cardsPlayerDeck.Add(card);
             drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
@@ -190,13 +189,13 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 6 && DrawCards.drawablecardforPlayer)
         {
-            WaitPanel.SetActive(true);
+            DrawCards.NeedToWaitPanel = true;
             DrawCards.drawablecardforEnemy = true;
             DrawCards.drawablecardforPlayer = false;
         }
         else if (cardId == 6 && DrawCards.drawablecardforEnemy)
         {
-            WaitPanel.SetActive(false);
+            DrawCards.NeedToWaitPanel = true;
             DrawCards.drawablecardforPlayer = true;
             DrawCards.drawablecardforEnemy = false;
         }

@@ -94,6 +94,7 @@ public class MainMenu : MonoBehaviour
     public void Resume()
     {
         WaitPanel.SetActive(false);
+        DrawCards.NeedToWaitPanel = false;
     }
     public void SetMusicVolume()
     {

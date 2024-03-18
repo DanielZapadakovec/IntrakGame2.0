@@ -191,6 +191,10 @@ MonoBehaviour:
   drawCards: {fileID: 0}
   gameManager: {fileID: 0}
   areinViewArea: 0
+  DropZone: {fileID: 0}
+  logtext: {fileID: 0}
+  WaitPanel: {fileID: 8024638934382006958, guid: a3a29ceeaa2dce04f911186fc4684735, type: 3}
+  a: 10
 --- !u!61 &-4670266339259411356
 BoxCollider2D:
   m_ObjectHideFlags: 0
