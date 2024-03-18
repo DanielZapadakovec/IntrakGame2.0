@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour
     public GameObject EnemySide;
     public GameManager gameManager;
     [SerializeField] private AudioMixer myMixer;
+    [SerializeField] private Slider masterSlider;
+    [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider musicSlider;
 
     private void Start()
@@ -25,6 +27,8 @@ public class MainMenu : MonoBehaviour
         isInSettingPanel = false;
 
         SetMusicVolume();
+        SetMasterVolume();
+        SetSFXVolume();
     }
     void Update()
     {
@@ -96,10 +100,20 @@ public class MainMenu : MonoBehaviour
         WaitPanel.SetActive(false);
         DrawCards.NeedToWaitPanel = false;
     }
+    public void SetMasterVolume()
+    {
+        float Master_volume = masterSlider.value;
+        myMixer.SetFloat("master", Mathf.Log10(Master_volume) * 20);
+    }
+    public void SetSFXVolume()
+    {
+
+        float SFX_volume = sfxSlider.value;
+        myMixer.SetFloat("SFX", Mathf.Log10(SFX_volume) * 20);
+    }
     public void SetMusicVolume()
     {
-        float volume = musicSlider.value;
-        myMixer.SetFloat("master", Mathf.Log10(volume) * 20);
+        float Music_volume = musicSlider.value;
+        myMixer.SetFloat("music", Mathf.Log10(Music_volume) * 20);
     }
-
 }
