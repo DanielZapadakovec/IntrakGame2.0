@@ -21,6 +21,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider sfxSlider;
     [SerializeField] private Slider musicSlider;
+    [SerializeField] AudioSource sfx;
+    public AudioClip sfxClip;
 
     private void Start()
     {
@@ -43,14 +45,17 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
+        sfx.PlayOneShot(sfxClip);
         AskingPanel.SetActive(true);
     }
     public void ExitTutorial()
     {
+        sfx.PlayOneShot(sfxClip);
         AskingPanel.SetActive(false);
     }
     public void InsistOnPlaying()
     {
+        sfx.PlayOneShot(sfxClip);
         SceneManager.LoadSceneAsync(1);
     }
     public void Tutorial() 
@@ -61,6 +66,7 @@ public class MainMenu : MonoBehaviour
     }
     public void QuitGame()
     {
+        sfx.PlayOneShot(sfxClip);
         Application.Quit();
     }
         public void Menu_Button()
@@ -76,12 +82,14 @@ public class MainMenu : MonoBehaviour
 
     public void Lore_Button()
     {
+        sfx.PlayOneShot(sfxClip);
         SceneManager.LoadSceneAsync(2);
     }
 
     public void Setting_Button()
     {
-            SettingPanel.SetActive(true);
+        sfx.PlayOneShot(sfxClip);
+        SettingPanel.SetActive(true);
             MainPanel.SetActive(false);
             isInSettingPanel=true;
 
@@ -89,6 +97,8 @@ public class MainMenu : MonoBehaviour
 
     public void BackToMenuFromSetting()
     {
+
+        sfx.PlayOneShot(sfxClip);
         if (isInSettingPanel)
         {
             MainPanel.SetActive(true);
@@ -97,6 +107,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Resume()
     {
+        sfx.PlayOneShot(sfxClip);
         WaitPanel.SetActive(false);
         DrawCards.NeedToWaitPanel = false;
     }

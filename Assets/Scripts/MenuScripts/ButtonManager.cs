@@ -11,6 +11,8 @@ public class ButtonManager : MonoBehaviour
 
     public List<Image> imageList = new List<Image>();
     public int poradie = 0;
+    [SerializeField] AudioSource sfx;
+    public AudioClip sfxClip;
     public void Start()
     {
         AddImagesToList();
@@ -60,6 +62,7 @@ public class ButtonManager : MonoBehaviour
         if (index >= 0 && index < imageList.Count)
         {
             imageList[index].gameObject.SetActive(true);
+            sfx.PlayOneShot(sfxClip);
         }
         else
         {
