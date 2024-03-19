@@ -61,6 +61,7 @@ public class DrawCards : MonoBehaviour
     public GameObject ColorGroup;
     public Text turntext;
     [Header("Sounds")]
+    public Image imageComponent;
     // sound for cardshuffle
     public AudioSource shuffleSound;
 
@@ -106,6 +107,8 @@ public class DrawCards : MonoBehaviour
             ShowBackOfCardforPlayer(cardsPlayerDeck, true);
             MySide.transform.position = targetPosition;
             EnemySide.transform.position = startPosition1;
+
+            imageComponent.color = Background_Enemy_color;
             if (StartGameWasExecuted) { turntext.text = ("Enemy Turn"); }
         }
         else if (drawablecardforPlayer == true )
@@ -114,6 +117,7 @@ public class DrawCards : MonoBehaviour
             ShowBackOfCardforPlayer(cardsPlayerDeck, false);
             MySide.transform.position = startPosition1;
             EnemySide.transform.position = targetPosition;
+            imageComponent.color = Background_Player_Color;
             if (StartGameWasExecuted) { turntext.text = ("Player Turn"); }
         }
 
