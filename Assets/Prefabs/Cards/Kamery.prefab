@@ -193,7 +193,6 @@ MonoBehaviour:
   areinViewArea: 0
   DropZone: {fileID: 0}
   logtext: {fileID: 0}
-  WaitPanel: {fileID: 8024638934382006958, guid: a3a29ceeaa2dce04f911186fc4684735, type: 3}
   a: 10
 --- !u!61 &-4670266339259411356
 BoxCollider2D:
@@ -452,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fa73f148bfad6474ebc1c70390e13468, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20b1c4b64c8203d46ab824f1867f7020, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -527,7 +526,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 20b1c4b64c8203d46ab824f1867f7020, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

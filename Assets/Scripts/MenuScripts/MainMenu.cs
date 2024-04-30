@@ -24,6 +24,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioSource sfx;
     public AudioClip sfxClip;
 
+    public bool NeedToWaitPanel;
+
     private void Start()
     {
         isInSettingPanel = false;
@@ -41,6 +43,11 @@ public class MainMenu : MonoBehaviour
                 MainPanel.SetActive(true);
                 SettingPanel.SetActive(false);
             }
+        }
+
+        if (NeedToWaitPanel)
+        {
+            WaitPanel.SetActive(true);
         }
     }
     public void PlayGame()
@@ -109,7 +116,7 @@ public class MainMenu : MonoBehaviour
     {
         sfx.PlayOneShot(sfxClip);
         WaitPanel.SetActive(false);
-        DrawCards.NeedToWaitPanel = false;
+        NeedToWaitPanel = false;
     }
     public void SetMasterVolume()
     {

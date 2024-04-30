@@ -17,6 +17,7 @@ public class DragDrop : MonoBehaviour
     public Vector2 deckposition;
     public DrawCards drawCards;
     public GameManager gameManager;
+    public ResumeButton mainMenu;
     public bool areinViewArea;
     public GameObject DropZone;
     public Text logtext;
@@ -29,6 +30,7 @@ public class DragDrop : MonoBehaviour
         Canvas = GameObject.Find("MainCanvas");
         drawCards = GameObject.Find("DrawCardButton").GetComponent<DrawCards>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        mainMenu = GameObject.Find("MainCamera").GetComponent<ResumeButton>();
         DropZone = GameObject.Find("DropZone");
 
     }
@@ -148,7 +150,7 @@ public class DragDrop : MonoBehaviour
             GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
             card.transform.SetParent(drawCards.EnemyArea.transform, false);
 
-            DrawCards.NeedToWaitPanel = true;
+            mainMenu.NeedToWaitPanel = true;
 
             DrawCards.cardsEnemyDeck.Add(card);
             drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
@@ -162,7 +164,7 @@ public class DragDrop : MonoBehaviour
             GameObject card = Instantiate(drawCards.cardsInDeck[drawCards.cardsInDeck.Count - 1], new Vector2(0, 0), Quaternion.identity);
             card.transform.SetParent(drawCards.PlayerArea.transform, false);
 
-            DrawCards.NeedToWaitPanel = true;
+            mainMenu.NeedToWaitPanel = true;
 
             DrawCards.cardsPlayerDeck.Add(card);
             drawCards.cardsInDeck.RemoveAt(drawCards.cardsInDeck.Count - 1);
@@ -189,13 +191,13 @@ public class DragDrop : MonoBehaviour
         }
         else if (cardId == 6 && DrawCards.drawablecardforPlayer)
         {
-            DrawCards.NeedToWaitPanel = true;
+            mainMenu.NeedToWaitPanel = true;
             DrawCards.drawablecardforEnemy = true;
             DrawCards.drawablecardforPlayer = false;
         }
         else if (cardId == 6 && DrawCards.drawablecardforEnemy)
         {
-            DrawCards.NeedToWaitPanel = true;
+            mainMenu.NeedToWaitPanel = true;
             DrawCards.drawablecardforPlayer = true;
             DrawCards.drawablecardforEnemy = false;
         }

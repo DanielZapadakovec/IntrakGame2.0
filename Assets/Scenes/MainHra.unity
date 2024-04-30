@@ -615,7 +615,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4060339534522670242, guid: d3e4267bc6a7cc34abed7a046a74aca3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 90f4acb8a8641224fb182df486a0ca63, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4ac587f965f7f16448a314e18a8dade2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -862,6 +862,7 @@ GameObject:
   - component: {fileID: 1034481540}
   - component: {fileID: 1034481543}
   - component: {fileID: 1034481544}
+  - component: {fileID: 1034481545}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -970,6 +971,7 @@ MonoBehaviour:
   musicSlider: {fileID: 0}
   sfx: {fileID: 0}
   sfxClip: {fileID: 0}
+  NeedToWaitPanel: 0
 --- !u!114 &1034481544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -987,6 +989,20 @@ MonoBehaviour:
   gamesound: {fileID: 830291427}
   isPaused: 0
   PauseButton: {fileID: 596575590}
+--- !u!114 &1034481545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034481539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03bd97be021a9b241b4b97536a60befa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitPanel: {fileID: 1631471406}
+  NeedToWaitPanel: 0
 --- !u!1 &1083624956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,7 +1407,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5316265268246151816, guid: 3526d80550fd83d499f42791103c249f, type: 3}
-      insertIndex: -1
+      insertIndex: 9
       addedObject: {fileID: 1631471407}
     - targetCorrespondingSourceObject: {fileID: 5316265268246151816, guid: 3526d80550fd83d499f42791103c249f, type: 3}
       insertIndex: -1
@@ -1423,32 +1439,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1936573785}
     m_Modifications:
     - target: {fileID: 1720091091076046785, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720091091076046785, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720091091076046785, guid: fde66cde20039534297886029283e941, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1034481543}
-    - target: {fileID: 1720091091076046785, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1034481545}
     - target: {fileID: 1720091091076046785, guid: fde66cde20039534297886029283e941, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
       objectReference: {fileID: 0}
     - target: {fileID: 1720091091076046785, guid: fde66cde20039534297886029283e941, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1720091091076046785, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: ResumeButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3899075614821068755, guid: fde66cde20039534297886029283e941, type: 3}
       propertyPath: m_Pivot.x
@@ -1516,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3899075614821068755, guid: fde66cde20039534297886029283e941, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -4.740814
+      value: -4.7408447
       objectReference: {fileID: 0}
     - target: {fileID: 3899075614821068755, guid: fde66cde20039534297886029283e941, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1530,33 +1530,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5452088701511863655, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 323.3468
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452088701511863655, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 115.258
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452088701511863655, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.000011444
-      objectReference: {fileID: 0}
-    - target: {fileID: 5452088701511863655, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000005722
-      objectReference: {fileID: 0}
     - target: {fileID: 8414810090532907681, guid: fde66cde20039534297886029283e941, type: 3}
       propertyPath: m_Name
       value: Wait_Panel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8414810090532907681, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8736948819614048670, guid: fde66cde20039534297886029283e941, type: 3}
-      propertyPath: m_Name
-      value: Next_Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

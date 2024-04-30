@@ -78,8 +78,6 @@ public class DrawCards : MonoBehaviour
     public static bool LastDroppedCardByEnemy9;
 
 
-    public static bool NeedToWaitPanel;
-
 
     void Start()
     {
@@ -95,11 +93,6 @@ public class DrawCards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (NeedToWaitPanel)
-        {
-            WaitPanel.SetActive(true);
-        }
 
         if (drawablecardforEnemy == true )
         {
