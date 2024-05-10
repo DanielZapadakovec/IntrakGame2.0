@@ -11,7 +11,7 @@ public class ResumeButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NeedToWaitPanel)
+        if (NeedToWaitPanel == true)
         {
             WaitPanel.SetActive(true);
         }

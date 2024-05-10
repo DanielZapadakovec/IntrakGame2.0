@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        if (NeedToWaitPanel)
+        if (NeedToWaitPanel == true)
         {
             WaitPanel.SetActive(true);
         }
@@ -134,4 +134,5 @@ public class MainMenu : MonoBehaviour
         float Music_volume = musicSlider.value;
         myMixer.SetFloat("music", Mathf.Log10(Music_volume) * 20);
     }
+
 }
